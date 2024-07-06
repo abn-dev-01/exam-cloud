@@ -1,0 +1,14 @@
+#
+server:
+  port: 10122
+
+spring:
+  application:
+    name: history
+
+  datasource:
+    url: jdbc:h2:file:./data/history-db;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password: sa
+  flyway:
+    locations: classpath:db/migration
