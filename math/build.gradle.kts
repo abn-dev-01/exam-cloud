@@ -29,6 +29,8 @@ repositories {
 extra["snippetsDir"] = file("build/generated-snippets")
 extra["springCloudVersion"] = "2023.0.2"
 
+// Versions
+
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -43,6 +45,7 @@ dependencies {
 //    implementation("org.springframework.cloud:spring-cloud-starter-config")
 //    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 //    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+//    implementation("org.springdoc:springdoc-openapi-ui:$openApiVersion")
 
     implementation("org.flywaydb:flyway-core")  // Flyway dependency
     runtimeOnly("com.h2database:h2")
