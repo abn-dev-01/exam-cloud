@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MathApplication
+class HistoryApplication
 
 fun main(args: Array<String>) {
-    runApplication<MathApplication>(*args)
+    runApplication<HistoryApplication>(*args)
 }

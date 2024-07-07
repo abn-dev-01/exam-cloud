@@ -1,10 +1,11 @@
 plugins {
-//    id("org.jetbrains.kotlin.jvm") version "1.7.10"
     id("org.jetbrains.kotlin.jvm") version "1.9.24"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.24"
     kotlin("plugin.spring") version "1.9.24"
     id("org.springframework.boot") version "3.3.1"
     id("io.spring.dependency-management") version "1.1.5"
     id("org.asciidoctor.jvm.convert") version "3.3.2"
+    id("org.flywaydb.flyway") version "9.5.0"
 }
 
 group = "pro.abnjava.examcloud"
@@ -37,18 +38,21 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 //    implementation("org.springframework.cloud:spring-cloud-starter")
 //    implementation("org.springframework.cloud:spring-cloud-starter-config")
 //    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-//    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 //    implementation("org.springdoc:springdoc-openapi-ui:$openApiVersion")
+//    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 
     implementation("org.flywaydb:flyway-core")  // Flyway dependency
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("com.h2database:h2:2.2.220")
+//    runtimeOnly("com.h2database:h2:2.2.224")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
