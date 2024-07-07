@@ -17,10 +17,6 @@ class HistoryController(
     fun getRandomQuestions(
         @RequestParam("amount") amount: Int
     ): List<Question> {
-        val answers = mutableListOf<Question>()
-        for (i in 1..amount) {
-            answers.add(historyService.getRandomQuestions(i))
-        }
-        return answers
+        return historyService.getRandomQuestions(amount)
     }
 }
