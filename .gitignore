@@ -43,3 +43,6 @@ out/
 
 ### MAVEN ###
 target/
+
+## project H2 DB
+/data/

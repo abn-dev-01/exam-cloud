@@ -20,9 +20,17 @@ spring:
   application:
     name: discovery
 
+#
+#- EUREKA CONFIGURATION -#
 eureka:
+  instance:
+    preferIpAddress: false
+    hostname: localhost
   server:
-    enable-self-preservation: false
+    enableSelfPreservation: false
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:10761/eureka/
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

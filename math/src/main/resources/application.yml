@@ -12,3 +12,16 @@ spring:
     password: sa
   flyway:
     locations: classpath:db/migration
+
+#
+#- EUREKA CONFIGURATION -#
+eureka:
+  instance:
+    preferIpAddress: false
+    hostname: localhost
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    eurekaServerPort: ${EUREKA_PORT}
+    serviceUrl:
+      defaultZone: http://localhost:10761/eureka/

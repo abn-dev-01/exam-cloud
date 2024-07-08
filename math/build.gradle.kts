@@ -30,6 +30,13 @@ extra["snippetsDir"] = file("build/generated-snippets")
 extra["springCloudVersion"] = "2023.0.2"
 
 // Versions
+val springCloudVer = "2024.0.0"
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVer")
+    }
+}
 
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -40,11 +47,14 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    developmentOnly("org.springframework.boot:spring-boot-actuator-autoconfigure")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-//    implementation("org.springframework.cloud:spring-cloud-starter")
+    implementation("org.springframework.cloud:spring-cloud-starter")
 //    implementation("org.springframework.cloud:spring-cloud-starter-config")
-//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-//    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.5")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 //    implementation("org.springdoc:springdoc-openapi-ui:$openApiVersion")
 
     implementation("org.flywaydb:flyway-core")  // Flyway dependency
