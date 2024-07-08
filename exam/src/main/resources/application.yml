@@ -1,0 +1,27 @@
+#
+server:
+  port: 10100
+
+spring:
+  application:
+    name: exam
+
+  datasource:
+    url: jdbc:h2:file:./data/math-db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+  flyway:
+    locations: classpath:db/migration
+
+#
+#- EUREKA CONFIGURATION -#
+eureka:
+  instance:
+    preferIpAddress: false
+    hostname: localhost
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    eurekaServerPort: ${EUREKA_PORT}
+    serviceUrl:
+      defaultZone: http://localhost:10761/eureka/
