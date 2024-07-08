@@ -44,11 +44,11 @@ dependencies {
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-//    implementation("org.springframework.cloud:spring-cloud-starter")
+    implementation("org.springframework.cloud:spring-cloud-starter")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 //    implementation("org.springframework.cloud:spring-cloud-starter-config")
-//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 //    implementation("org.springdoc:springdoc-openapi-ui:$openApiVersion")
-//    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 
     implementation("org.flywaydb:flyway-core")  // Flyway dependency
     runtimeOnly("com.h2database:h2:2.2.220")

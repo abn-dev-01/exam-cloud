@@ -32,5 +32,5 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:10761/eureka/
-      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: ${EUREKA_HOST}:${EUREKA_PORT}/eureka/
+#      defaultZone: http://localhost:10761/eureka/

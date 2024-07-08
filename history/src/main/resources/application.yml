@@ -22,3 +22,15 @@ spring:
     locations: classpath:db/migration
     baselineOnMigrate: false
     validateMigrationNaming: false
+#
+#- EUREKA CONFIGURATION -#
+eureka:
+  instance:
+    preferIpAddress: false
+    hostname: localhost
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    eurekaServerPort: ${EUREKA_PORT}
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL}
