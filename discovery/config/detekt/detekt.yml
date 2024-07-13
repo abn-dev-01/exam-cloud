@@ -1,0 +1,36 @@
+build:
+  maxIssues: 10
+  weights:
+    complexity: 2
+    LongParameterList: 1
+    style: 1
+  excludes: '**/resources/**,**/build/**'
+  includes: '**/main/**,**/test/**'
+
+style:
+  MagicNumber:
+    active: true
+    ignoreNumbers:
+      - '-1'
+      - '0'
+      - '1'
+      - '2'
+      - '100'
+    ignoreHashCodeFunction: true
+
+#comments:
+#  CommentOverPrivateMethod:
+#    active: true
+
+complexity:
+  LongParameterList:
+    active: true
+    threshold: 6
+
+performance:
+  ForEachOnRange:
+    active: true
+
+potential-bugs:
+  EqualsWithHashCodeExist:
+    active: true
