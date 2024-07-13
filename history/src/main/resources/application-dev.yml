@@ -5,6 +5,7 @@ logging:
     org.flywaydb.core: DEBUG
     org:
       springframework: DEBUG
+      cloud.netflix.eureka: INFO
       hibernate:
         SQL: DEBUG
         type: TRACE

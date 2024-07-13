@@ -1,9 +1,9 @@
-package pro.abnjava.examcloud.math
+package pro.abnjava.examcloud.exam
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
+@SpringBootTest(classes = [ExamApplication::class])
 class ExamApplicationTests {
 
     @Test
