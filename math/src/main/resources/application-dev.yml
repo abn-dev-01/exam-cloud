@@ -2,5 +2,5 @@
 debug: true
 logging:
   level:
-    org:
-      springframework: DEBUG
+    org.springframework: DEBUG
+    org.springframework.cloud.netflix.eureka: INFO

@@ -44,5 +44,9 @@ out/
 ### MAVEN ###
 target/
 
-## project H2 DB
+## project files
 /data/
+/**/detekt/baseline.xml
+/**/detekt/baseline-main.xml
+/**/detekt/baseline-test.xml
+/history/data/history-db.mv.db
