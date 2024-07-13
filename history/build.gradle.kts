@@ -1,7 +1,9 @@
+
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.9.24"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.24"
-    kotlin("plugin.spring") version "1.9.24"
+    kotlin("plugin.spring") version "1.9.23"
+    id("org.jetbrains.kotlin.jvm") version "1.9.23"
+    id("io.gitlab.arturbosch.detekt") version "1.23.6" // compiled with 1.9.23!
+
     id("org.springframework.boot") version "3.3.1"
     id("io.spring.dependency-management") version "1.1.5"
     id("org.asciidoctor.jvm.convert") version "3.3.2"
@@ -33,6 +35,9 @@ extra["springCloudVersion"] = "2023.0.2"
 // Versions
 
 dependencies {
+    implementation(kotlin("stdlib"))
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.6")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
@@ -40,13 +45,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    developmentOnly("org.springframework.boot:spring-boot-actuator-autoconfigure")
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
     implementation("org.springframework.cloud:spring-cloud-starter")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+//    implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 //    implementation("org.springframework.cloud:spring-cloud-starter-config")
 //    implementation("org.springdoc:springdoc-openapi-ui:$openApiVersion")
 
@@ -63,6 +71,15 @@ dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
     }
+}
+
+detekt {
+    toolVersion = "1.23.6"
+    config.setFrom(files("config/detekt/detekt.yml"))
+    buildUponDefaultConfig = true // Adjust this based on your needs
+    allRules = false // Activate all available (even unstable) rules.
+    parallel = true // Uses current amount of cpu cores to speed up analysis.
+    baseline = file("config/detekt/baseline.xml") // Use if you have a baseline for ignored issues
 }
 
 kotlin {

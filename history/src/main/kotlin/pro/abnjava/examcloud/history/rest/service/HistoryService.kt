@@ -16,7 +16,6 @@ class HistoryService(
     }
 
     private fun QuestionEntity.toCore() = Question(
-        id = this.id,
         question = this.question,
         answer = this.answer
     )

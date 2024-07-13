@@ -1,0 +1,86 @@
+build:
+  maxIssues: 10 # break the build if more than ten weighted issues are found
+  weights:
+    complexity: 2 # every rule of the complexity rule set should count as if two issues were found...
+    LongParameterList: 1 # ...with the exception of the LongParameterList rule.
+    style: 1
+    comments: 0 # comment rules are just a nice to know?!
+  excludes: '**/resources/**,**/build/**'
+  includes: '**/main/**,**/test/**'
+
+style:
+  MagicNumber:
+    active: true
+    ignoreNumbers:
+      - '-1'
+      - '0'
+      - '1'
+      - '2'
+      - '100'
+    ignoreHashCodeFunction: true
+
+#comments:
+#  CommentOverPrivateMethod:
+#    active: true
+
+complexity:
+  LongParameterList:
+    active: true
+    threshold: 16
+
+performance:
+  ForEachOnRange:
+    active: true
+
+potential-bugs:
+  EqualsWithHashCodeExist:
+    active: true
+
+console-reports:
+  active: true
+  #exclude:
+  #  - 'ProjectStatisticsReport'
+  #  - 'ComplexityReport'
+  #  - 'NotificationReport'
+  #  - 'FindingsReport'
+  #  - 'FileBasedFindingsReport'
+  #  - 'LiteFindingsReport'
+  # ProjectStatisticsReport: contains metrics and statistics concerning the analyzed project sorted by priority.
+  #
+  # ComplexityReport: contains metrics concerning the analyzed code.
+  #         For instance the source lines of code and the McCabe complexity are calculated.
+  #
+  # NotificationReport: contains notifications reported by the detekt analyzer similar
+  #                     to push notifications. It's simply a way of alerting users
+  #                     to information that they have opted-in to.
+  #
+  # FindingsReport: contains all rule violations in a list format grouped by ruleset.
+  #
+  # FileBasedFindingsReport: is similar to the FindingsReport shown above.
+  #                         The rule violations are grouped by file location.
+
+output-reports:
+  active: true
+  #exclude:
+  #  - 'HtmlOutputReport'
+  #  - 'TxtOutputReport'
+  #  - 'XmlOutputReport'
+  #  - 'SarifOutputReport'
+  #  - 'MdOutputReport'
+
+processors:
+  active: true
+  exclude:
+    - 'DetektProgressListener'
+    # - 'KtFileCountProcessor'
+    # - 'PackageCountProcessor'
+    # - 'ClassCountProcessor'
+    # - 'FunctionCountProcessor'
+    # - 'PropertyCountProcessor'
+    # - 'ProjectComplexityProcessor'
+    # - 'ProjectCognitiveComplexityProcessor'
+    # - 'ProjectLLOCProcessor'
+    # - 'ProjectCLOCProcessor'
+    # - 'ProjectLOCProcessor'
+    # - 'ProjectSLOCProcessor'
+    # - 'LicenseHeaderLoaderExtension'
